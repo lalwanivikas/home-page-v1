@@ -1,4 +1,1 @@
-lalwanivikas.github.io
-======================
-
-Setting up my GitHub Pages.
+Setting up my GitHub Pages. You can access it at http://lalwanivikas.github.io
