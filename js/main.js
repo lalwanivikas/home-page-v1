@@ -1,13 +1,3 @@
-<<<<<<< Updated upstream
-* {
-	margin: 0;
-	padding: 0;
-}
-
-html, body {
-	height: 100%;
-}
-=======
 $(function() {
 	var canvas = $("#c");
 	var canvasHeight;
@@ -175,37 +165,91 @@ $(function() {
 	
 	function draw() {
 		var tmpCanvas = canvas.get(0);
->>>>>>> Stashed changes
 
-body {
-	color: #ccc;
-	font-family: Helvetica Neue, Verdana, sans-serif;
-	font-size: 20px;
-	text-align:center;
-}
+		if (tmpCanvas.getContext == null) {
+			return; 
+		};
+		
+		ctx = tmpCanvas.getContext('2d');
+		ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+		
+		if (pointCollection)
+			pointCollection.draw();
+	};
+	
+	function update() {		
+		if (pointCollection)
+			pointCollection.update();
+	};
+	
+	function Vector(x, y, z) {
+		this.x = x;
+		this.y = y;
+		this.z = z;
+ 
+		this.addX = function(x) {
+			this.x += x;
+		};
+		
+		this.addY = function(y) {
+			this.y += y;
+		};
+		
+		this.addZ = function(z) {
+			this.z += z;
+		};
+ 
+		this.set = function(x, y, z) {
+			this.x = x; 
+			this.y = y;
+			this.z = z;
+		};
+	};
+	
+	function PointCollection() {
+		this.mousePos = new Vector(0, 0);
+		this.points = new Array();
+		
+		this.newPoint = function(x, y, z) {
+			var point = new Point(x, y, z);
+			this.points.push(point);
+			return point;
+		};
+		
+		this.update = function() {		
+			var pointsLength = this.points.length;
+			
+			for (var i = 0; i < pointsLength; i++) {
+				var point = this.points[i];
+				
+				if (point == null)
+					continue;
+				
+				var dx = this.mousePos.x - point.curPos.x;
+				var dy = this.mousePos.y - point.curPos.y;
+				var dd = (dx * dx) + (dy * dy);
+				var d = Math.sqrt(dd);
+				
+				if (d < 150) {
+					point.targetPos.x = (this.mousePos.x < point.curPos.x) ? point.curPos.x - dx : point.curPos.x - dx;
+					point.targetPos.y = (this.mousePos.y < point.curPos.y) ? point.curPos.y - dy : point.curPos.y - dy;
+				} else {
+					point.targetPos.x = point.originalPos.x;
+					point.targetPos.y = point.originalPos.y;
+				};
+				
+				point.update();
+			};
+		};
+		
+		this.draw = function() {
+			var pointsLength = this.points.length;
+			for (var i = 0; i < pointsLength; i++) {
+				var point = this.points[i];
+				
+				if (point == null)
+					continue;
 
-<<<<<<< Updated upstream
-p {
-	line-height: 1.5em;
-	list-style: none;
-}
-p a, p a:visited {
-	color: #56bff6;
-	text-decoration: none;
-}
-
-	p a:hover {
-		border-bottom: 1px solid #56bff6;
-	}
-
-canvas, section {
-	display: block;
-}
-
-#c {
-	position: absolute;
-}
-=======
 				point.draw();
 			};
 		};
@@ -266,4 +310,3 @@ canvas, section {
 	
 	init();
 });
->>>>>>> Stashed changes
