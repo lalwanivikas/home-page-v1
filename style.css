@@ -1,0 +1,113 @@
+/*General styling*/
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica, Arial,sans-serif;
+}
+
+body {
+	margin: 50px auto;
+	width: 400px;
+}
+
+h1 {
+	font-size: 50px;
+	font-weight: 100;
+	text-align: center;
+	padding: 20px 2px 10px;
+	letter-spacing: 2px;
+}
+
+h2 {
+	font-size: 17px;
+	font-weight: 100;
+	padding: 20px 2px;
+	text-align: center;
+}
+
+hr {
+	margin: 0 auto;
+	border:0;
+	border-top: 1px solid grey;
+}
+
+/*Style for connect icons*/
+.connectIcons {
+	text-align: center;
+	margin: 10px 0 15px;
+}
+
+.connectIcons i{
+	margin: 0 15px;
+}
+.connectIcons a {
+	color: #000;
+}
+
+.connectIcons .fa-twitter:hover{
+	cursor: pointer;
+	color: #55ACEE;
+}
+
+.connectIcons .fa-github:hover{
+	cursor: pointer;
+	color: #6C7A89;
+}
+
+.connectIcons .fa-envelope:hover{
+	cursor: pointer;
+	color: #D35400;
+}
+
+/*Style for main wrapper*/
+.wrapper {
+	margin: 0 auto;
+	border: 2px solid grey;
+	border-radius: 5px;
+}
+
+/*Style for project list*/
+.projectList {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.projectList li {
+	list-style: none;
+	margin: 15px 10px;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	padding: 10px 5px;
+}
+
+.projectList li:hover {
+	border-color: #2ECC71;
+	transition: 0.4s;
+}
+
+.projectList li h3 {
+	font-weight: 200;
+	font-size: 20px;
+	padding: 5px 0;
+	letter-spacing: 1px;
+}
+
+.projectList li p {
+	margin: 5px 0 10px;
+	font-weight: 100;
+}
+
+.projectList a {
+	font-weight: 100;
+	text-decoration: none;
+	color: #000;
+	padding: 10px;
+	margin: 10px 5px;
+}
+
+.projectList a:hover {
+	border-bottom: 2px solid #000;
+}
+
+
+
